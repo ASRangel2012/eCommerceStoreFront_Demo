@@ -1,0 +1,16 @@
+﻿@model Order
+
+<div class="card card-rounded">
+    <div class="card-body">
+        <h3 class="card-title">
+            @Model.Name
+        </h3>
+        <p>
+            @foreach(CartLine line in Model.Lines){
+            @line.Product.Description<br />
+            @line.Product.Price.ToString("c")
+            }
+        </p>
+    </div>
+</div>
+

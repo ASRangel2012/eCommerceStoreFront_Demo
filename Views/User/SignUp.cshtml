@@ -1,0 +1,43 @@
+﻿@using MarinaCargo.Models.ViewModels
+@model UserViewModel
+@{
+    ViewBag.Title = "Create Account";
+}
+<div class="panel"><h1>Create an Account</h1></div>
+<div>
+    <form asp-action="SignUp" method="post">
+        <div asp-validation-summary="All"></div>
+        <div class="form-group">
+            <div>
+                <label>Email Address:</label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <label>Zip Code:</label>
+                <input asp-for="Zip" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <label>User Name:</label>
+                <input asp-for="UserName" class="form-control" />
+            </div>
+            <br />
+            <div>
+
+                <label>Password:</label>
+                <input asp-for="Password" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <label>Confirm Password:</label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <button class="btn btn-primary" type="submit"> Create Account </button>
+            </div>
+        </div>
+    </form>
+    <a asp-action="SignIn" asp-controller="User">Already have an account? Sign in</a>
+</div>

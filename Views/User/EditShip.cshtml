@@ -1,0 +1,52 @@
+﻿@using MarinaCargo.Models.ViewModels
+@model ShipInfo
+@{
+    ViewBag.Title = "Edit Shipping Info";
+}
+<div class="panel"><h1>Edit shipping information</h1></div>
+<div>
+    <form asp-action="EditShip" method="post">
+        <div asp-validation-summary="All"></div>
+        <div class="form-group">
+            <div>
+                <label>First Name:</label>
+                <input asp-for="FirstName" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <label>Last Name:</label>
+                <input asp-for="LastName" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <label>Address Line 1:</label>
+                <input asp-for="Add1" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <label>Address Line 2:</label>
+                <input asp-for="Add2" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <label>City:</label>
+                <input asp-for="City" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <label>State:</label>
+                <input asp-for="State" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <label>Zip:</label>
+                <input asp-for="Zip" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <button class="btn btn-success" type="submit"> Update Account </button>
+                <button class="btn btn-danger" asp-action="Summary" asp-controller="User"> Cancel </button>
+            </div>
+        </div>
+    </form>
+</div>

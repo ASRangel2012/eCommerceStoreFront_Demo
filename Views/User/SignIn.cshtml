@@ -1,0 +1,35 @@
+﻿@using MarinaCargo.Models.ViewModels
+@model SignInViewModel
+@{
+    ViewBag.Title = "Sign In";
+}
+<div class="panel"><h1>Sign In</h1></div>
+<div>
+    <form class="form-group" asp-action="SignIn" asp-controller="User" asp-route-returnurl="@Model.ReturnUrl" method="post">
+        <div class="form-group" asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label>User Name:</label>
+            <input asp-for="Username" class="form-control" />
+            <span asp-validation-for="Username"></span>
+        </div>
+        <br />
+        <div>
+            <label>Password:</label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        <br />
+        <div>
+            <label asp-for="Remember"></label>
+            <input asp-for="Remember" />
+            <span asp-validation-for="Remember"></span>
+        </div>
+        <br />
+        <div>
+            <button class="btn btn-primary" type="submit"> Sign In </button>
+        </div>
+        <br />
+        <a asp-action="SignUp" asp-controller="User">Don't have an account? Sign up</a>
+    </form>
+</div>
+<br />

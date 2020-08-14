@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@if (TempData["orderSuccess"] != null)
+{<div class="alert alert-success">@TempData["orderSuccess"]</div>}
+
+<!-- Carousel -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <a asp-action="List" asp-controller="Product" asp-route-category="Automotive" asp-route-page="1">
+                <img src="~/images/apexbanner.jpg" alt="ASP.NET" class="img-responsive" />
+            </a>
+        </div>
+        <div class="item">
+            <a asp-action="List" asp-controller="Product" asp-route-category="Tool Storage & Organization" asp-route-page="1">
+                <img src="~/images/iconbanner.png" alt="Package Management" class="img-responsive" />
+            </a>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<!-- Carousel -->
+
+<hr />
+<!-- Category Title -->
+<h3>Shop by Category</h3>
+
+<!-- Categories -->
+<div class="row">
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Power Tools" asp-route-page="1"><img src="~/images/powertoolsblue.png" alt="Power Tools" class="img-thumbnail" /></a>
+        <h2>Power Tools</h2>
+    </div>
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Hand Tools" asp-route-page="1"><img src="~/images/handtoolsblue.png" alt="Hand Tools" class="img-thumbnail" /></a>
+        <h2>Hand Tools</h2>
+    </div>
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Air Tools & Compressors" asp-route-page="1"><img src="~/images/airtoolsblue.png" alt="Air Tools & Compressors" class="img-thumbnail" /></a>
+        <h2>Air Tools & Compressors</h2>
+    </div>
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Tool Storage & Organization" asp-route-page="1"><img src="~/images/toolboxblue.png" alt="Tool Storage & Organization" class="img-thumbnail" /></a>
+        <h2>Tool Storage & Organization</h2>
+    </div>
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Automotive" asp-route-page="1"><img src="~/images/automotiveblue.png" alt="Automotive" class="img-thumbnail" /></a>
+        <h2>Automotive</h2>
+    </div>
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Engines & Generators" asp-route-page="1"><img src="~/images/generatorblue.png" alt="Enigines & Generators" class="img-thumbnail" /></a>
+        <h2>Engines & Generators</h2>
+    </div>
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Home & Outdoor" asp-route-page="1"><img src="~/images/homeblue.png" alt="Power Tools" class="img-thumbnail" /></a>
+        <h2>Home & Outdoor</h2>
+    </div>
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Welding" asp-route-page="1"><img src="~/images/weldingblue.png" alt="Power Tools" class="img-thumbnail" /></a>
+        <h2>Welding</h2>
+    </div>
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Plumbing" asp-route-page="1"><img src="~/images/plumbingblue.jpg" alt="Power Tools" class="img-thumbnail" /></a>
+        <h2>Plumbing</h2>
+    </div>
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Electrical" asp-route-page="1"><img src="~/images/electricalblue.png" alt="Power Tools" class="img-thumbnail" /></a>
+        <h2>Electrical</h2>
+    </div>
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Hardware" asp-route-page="1"><img src="~/images/hardwareblue.png" alt="Power Tools" class="img-thumbnail" /></a>
+        <h2>Hardware</h2>
+    </div>
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Materials" asp-route-page="1"><img src="~/images/materialsblue.png" alt="Power Tools" class="img-thumbnail" /></a>
+        <h2>Materials</h2>
+    </div>
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Building & Construction" asp-route-page="1"><img src="~/images/buildingblue.png" alt="Power Tools" class="img-thumbnail" /></a>
+        <h2>Building & Construction</h2>
+    </div>
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Painting" asp-route-page="1"><img src="~/images/paintingblue.png" alt="Power Tools" class="img-thumbnail" /></a>
+        <h2>Painting</h2>
+    </div>
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Safety" asp-route-page="1"><img src="~/images/safetyblue.png" alt="Power Tools" class="img-thumbnail" /></a>
+        <h2>Safety</h2>
+    </div>
+    <div class="col-md-3">
+        <a asp-action="List" asp-controller="Product" asp-route-category="Lighting" asp-route-page="1"><img src="~/images/lightingblue.jpg" alt="Power Tools" class="img-thumbnail" /></a>
+        <h2>Lighting</h2>
+    </div>
+</div>
