@@ -1,0 +1,100 @@
+﻿
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 60px;
+}
+
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+col-md-3 {
+    text-shadow: 1px 1px 0 #444;
+    font-size: 18px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 12px;
+    text-align: center;
+}
+
+.img-responsive {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.img-thumbnail {
+    border: 0 none;
+    box-shadow: none;
+    max-width: 200px;
+    max-height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%
+}
+
+.navbar-brand {
+    color: white;
+    background-size: 40px 40px;
+}
+
+.body {
+    color: white;
+}
+
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+}
+
+.navbar-default {
+    background-color: #002366;
+    border-color: #eeeeee;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: white;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: gray;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: Highlight;
+    background-color: #012b7a;
+}
+
+
+.col-sm-2 col-md-2 {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer {
+    width: 100%;
+}
