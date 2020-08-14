@@ -1,11 +1,12 @@
 # eCommerceStoreFront (Demo)
 
-Fullstack webapp demo for eCommerce solution implemeted in ASP.NET/C#
-NOTE: no cyber security solutions implemented
+Fullstack eCommerce webapp demo implemeted in ASP.NET/C# with simple HTML frontend
+
+NOTE: Do not use this without modern cybersecurity solution
 
 ## Features:
 - simple (extensible) frontend 
-- async database Interface
+- async database interface
 - User Controller: new users & login page with input sanitization
 - Product Controller: storefront product repository
 - Cart Controller: cart manager
