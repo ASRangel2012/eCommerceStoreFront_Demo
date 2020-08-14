@@ -1,0 +1,29 @@
+﻿@using MarinaCargo.Models.ViewModels
+@model ProductsListViewModel
+
+@if (Model.CurrentCategory != null)
+{
+    ViewBag.Title = Model.CurrentCategory;
+}
+else { ViewBag.Title = "All Products"; }
+
+<div class="col col-md-3">
+    @await Component.InvokeAsync("NavigationMenu")
+</div>
+<div class="col col-md-9">
+    @if (Model.CurrentCategory != null)
+    {
+        <h1><strong>@Model.CurrentCategory</strong></h1>
+    }
+    else {<h1><strong>All Products</strong></h1>}
+    <hr />
+    @foreach (var p in Model.Products)
+    {
+        @Html.Partial("ProductSummary", p)
+    }
+    <div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
+         page-class="btn" page-class-normal="btn-default"
+         page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory" btn-group float-right">
+    </div>
+    <br />
+</div>

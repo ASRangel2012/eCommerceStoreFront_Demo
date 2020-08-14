@@ -1,0 +1,12 @@
+﻿@using MarinaCargo.Models.ViewModels
+@model OrdersListViewModel
+
+@{
+    ViewBag.Title = "Your Orders";
+}
+ <hr />
+    @foreach (var p in Model.Orders)
+    {
+        @Html.Partial("OrderSummary", p)
+    }
+    <br />

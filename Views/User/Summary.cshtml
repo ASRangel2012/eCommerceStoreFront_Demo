@@ -1,0 +1,14 @@
+﻿@model User
+@{
+    ViewBag.Title = "Account Summary";
+}
+<div class="panel"><h1>Your Account</h1></div>
+<div class="text-justify">
+    <h3>Signed in as @User.Identity.Name</h3>
+</div>
+<br/>
+<div>
+    <p><a asp-action="ViewOrders" asp-controller="Order">View your orders</a></p>
+    <p><a asp-action="EditShip" asp-controller="User">Update shipping info</a></p>
+    <p><a asp-action="EditAccount" asp-controller="User">Update account info</a></p>
+</div>

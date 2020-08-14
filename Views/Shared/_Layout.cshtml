@@ -1,0 +1,211 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Marina Cargo</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+
+    <!--Default Navbar Start Here-->
+    <!--<nav> tag  start with classes .navbar and .navbar-default-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!--Navbar Header Start Here-->
+            <div class="navbar-header">
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                    <img src="~/images/logos/marina-logo-bar.png" title="Marina Cargo" alt="Marina Cargo" width="135" height="29" />
+                </a>
+                <!--<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">MarinaCargo</a>-->
+
+            </div>
+            <!--Navbar Header End Here-->
+            <!--Menu Start Here-->
+            <ul class="nav navbar-nav">
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <!--dropdown Menu Start-->
+                <li class="dropdown">
+                    <a asp-area="" asp-controller="Product" asp-action="List">
+                        Catalog
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown">
+                            <a asp-action="List" asp-controller="Product" asp-route-category="Power Tools" asp-route-page="1">
+                                Power Tools
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a asp-action="List" asp-controller="Product" asp-route-category="Hand Tools" asp-route-page="1">
+                                Hand Tools
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a asp-action="List" asp-controller="Product" asp-route-category="Air Tools & Compressors" asp-route-page="1">
+                                Air Tools & Compressors
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a asp-action="List" asp-controller="Product" asp-route-category="Tool Storage & Organization" asp-route-page="1">
+                                Tool Storage & Organization
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a asp-action="List" asp-controller="Product" asp-route-category="Automotive" asp-route-page="1">
+                                Automotive
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a asp-action="List" asp-controller="Product" asp-route-category="Engines & Generators" asp-route-page="1">
+                                Engines & Generators
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a asp-action="List" asp-controller="Product" asp-route-category="Home & Outdoor" asp-route-page="1">
+                                Home & Outdoor
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a asp-action="List" asp-controller="Product" asp-route-category="Welding" asp-route-page="1">
+                                Welding
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a asp-action="List" asp-controller="Product" asp-route-category="Plumbing" asp-route-page="1">
+                                Plumbing
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a asp-action="List" asp-controller="Product" asp-route-category="Electrical" asp-route-page="1">
+                                Electrical
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a asp-area="" asp-controller="Product" asp-action="List">
+                                <strong>All Products</strong>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--dropdown Menu End-->
+                <li><a asp-area="" asp-controller="Home" asp-action="ReturnPolicy">Our Policies</a></li>
+            </ul>
+            <!--Menu End Here-->
+            <!-- Sign-up/Login Navbar -->
+
+            @if (User.Identity.IsAuthenticated)
+            {
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a asp-area="" asp-controller="Cart" asp-action="Index" asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
+                        <span class="glyphicon glyphicon-shopping-cart"></span> Cart
+                    </a>
+                </li>
+                <li><a asp-area="" asp-controller="User" asp-action="Summary"><strong>@User.Identity.Name</strong></a></li>
+                <li><a asp-area="" asp-controller="User" asp-action="SignOut"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+            </ul>
+            }
+            else
+            {
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a asp-area="" asp-controller="Cart" asp-action="Index" asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
+                        <span class="glyphicon glyphicon-shopping-cart"></span> Cart
+                    </a>
+                </li>
+                <li><a asp-area="" asp-controller="User" asp-action="SignUp"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                <li><a asp-area="" asp-controller="User" asp-action="SignIn"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+
+            </ul>
+            }
+
+        </div>
+    </nav>
+    <!--<nav> tag end-->
+    <!--Default Navbar End Here-->
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="panel-default">
+                        <div class="col-xs-4 col-sm-4 col-lg-2 text-center">
+                            <div class="caption">
+                                <h4>Catalog</h4>
+                                <p><a asp-area="" asp-controller="Product" asp-action="List">All Products</a></p>
+                                <p><a asp-action="List" asp-controller="Product" asp-route-category="Power Tools" asp-route-page="1">Power Tools</a></p>
+                                <p><a asp-action="List" asp-controller="Product" asp-route-category="Automotive" asp-route-page="1">Automotive</a></p>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-4 col-sm-4 col-lg-2 text-center">
+                            <div class="caption">
+                                <h4>Account</h4>
+                                <p><a asp-area="" asp-controller="User" asp-action="Summary">Your Account</a></p>
+                                <p><a asp-area="" asp-controller="Cart" asp-action="Index">Your Cart</a></p>
+                                <p><a asp-area="" asp-controller="Order" asp-action="ViewOrders">Your Orders</a></p>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-4 col-sm-4 col-lg-2 text-center">
+                            <div class="caption">
+                                <h4>Information</h4>
+                                <p><a asp-area="" asp-controller="Home" asp-action="ReturnPolicy">Return Policy</a></p>
+                                <p><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a></p>
+                                <p><a asp-area="" asp-controller="Home" asp-action="Support">FAQs</a></p>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-6 col-lg-3 text-center">
+                            <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logos/marina-logo-bar.png" width="488" height="105" alt="Visit Marina Cargo"/></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <p>Copyright &copy; 2019 Marina Cargo.  All rights reserved.</p>
+
+        </footer>
+        <!-- Footer End -->
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,6 @@
+﻿@model IEnumerable<string>
+<a asp-action="List" asp-controller="Product" asp-route-category=""><h3><strong>All Products</strong></h3></a>
+@foreach (string c in Model)
+{
+    <a asp-action="List" asp-controller="Product" asp-route-category="@c" asp-route-page="1"><p><h4>@c</h4></p></a>
+}
